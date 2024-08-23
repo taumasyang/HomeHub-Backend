@@ -13,47 +13,47 @@ public class EventsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "guest_id")
-    private Long guestId;
+    private String title;
+    private String content;
     private LocalDateTime updateTime;
+    private Long publisherId;
 
-    @ManyToOne
-    @OnDelete(action= OnDeleteAction.CASCADE)
-    @JoinColumn(name = "listing_id", foreignKey = @ForeignKey(name = "fk_booking_listing"), insertable = false, updatable = false)
-    private ListingEntity listing;
+//    @ManyToOne
+//    @OnDelete(action= OnDeleteAction.CASCADE)
+//    @JoinColumn(name = "listing_id", foreignKey = @ForeignKey(name = "fk_booking_listing"), insertable = false, updatable = false)
+//    private ListingEntity listing;
 
 
-    @ManyToOne
-    @OnDelete(action=OnDeleteAction.CASCADE)
-    @JoinColumn(name = "guest_id", foreignKey = @ForeignKey(name = "fk_booking_guest"), insertable = false, updatable = false)
-    private UserEntity guest;
+//    @ManyToOne
+//    @OnDelete(action=OnDeleteAction.CASCADE)
+//    @JoinColumn(name = "guest_id", foreignKey = @ForeignKey(name = "fk_booking_guest"), insertable = false, updatable = false)
+//    private UserEntity guest;
 
 
     public EventsEntity() {
     }
 
-    public EventsEntity(Long id, Long guestId, Long listingId, LocalDate checkInDate, LocalDate checkOutDate) {
+    public EventsEntity(Long id, String title, String content, LocalDateTime updateTime, Long publisherId) {
         this.id = id;
-        this.guestId = guestId;
-        this.listingId = listingId;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
+        this.title = title;
+        this.content = content;
+        this.updateTime = updateTime;
+        this.publisherId = publisherId;
     }
-
 
     public Long getId() {
         return id;
     }
 
+    public String getTitle() { return title; }
 
-    public LocalDateTime getCheckInDate() {
+    public String getContent() { return content; }
+
+    public LocalDateTime getUpdateTime() {
         return updateTime;
     }
 
-
-    public UserEntity getGuest() {
-        return guest;
-    }
+    public Long getPublisherId() { return publisherId; }
 
 
     @Override
@@ -61,13 +61,13 @@ public class EventsEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EventsEntity that = (EventsEntity) o;
-        return Objects.equals(id, that.id) && Objects.equals(guestId, that.guestId) && Objects.equals(listingId, that.listingId) && Objects.equals(checkInDate, that.checkInDate) && Objects.equals(checkOutDate, that.checkOutDate) && Objects.equals(listing, that.listing) && Objects.equals(guest, that.guest);
+        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(content, that.content) && Objects.equals(updateTime, that.updateTime) && Objects.equals(publisherId, that.publisherId);
     }
 
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, guestId, listingId, checkInDate, checkOutDate, listing, guest);
+        return Objects.hash(id, title, content, updateTime, publisherId);
     }
 
 
@@ -75,12 +75,10 @@ public class EventsEntity {
     public String toString() {
         return "EventsEntity{" +
                 "id=" + id +
-                ", guestId=" + guestId +
-                ", listingId=" + listingId +
-                ", checkInDate=" + checkInDate +
-                ", checkOutDate=" + checkOutDate +
-                ", listing=" + listing +
-                ", guest=" + guest +
+                ", title=" + title +
+                ", content=" + content +
+                ", updateTime=" + updateTime +
+                ", publisherId=" + publisherId +
                 '}';
     }
 }
