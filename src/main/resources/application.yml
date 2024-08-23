@@ -1,0 +1,31 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB # File upload limit, default 1MB not enough.
+  jackson:
+    default-property-inclusion: non_null
+  datasource:
+    url: jdbc:mysql://${DATABASE_URL:localhost}:${DATABASE_PORT:3306}/homehub?createDatabaseIfNotExist=true
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:secret}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#  jpa:
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+#    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
+#    show-sql: true
+  sql:
+    init:
+      mode: always
+      schema-locations: "classpath:database-init.sql"
+
+#staybooking:
+#  gcs:
+#    bucket: staybooking-bucket-cc
+#  geocoding:
+#    key: AIzaSyDutgxeshGQ0wEoFFIZCerCcbErvvAXjlY
+#  jwt:
+#    secret-key: hYW3L6I3gPpEUbtU+17FEHRYJuc8uLYHaLLsuzzyKn4=
