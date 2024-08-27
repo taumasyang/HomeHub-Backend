@@ -18,18 +18,6 @@ public class EventsEntity {
     private LocalDateTime updateTime;
     private Long publisherId;
 
-//    @ManyToOne
-//    @OnDelete(action= OnDeleteAction.CASCADE)
-//    @JoinColumn(name = "listing_id", foreignKey = @ForeignKey(name = "fk_booking_listing"), insertable = false, updatable = false)
-//    private ListingEntity listing;
-
-
-//    @ManyToOne
-//    @OnDelete(action=OnDeleteAction.CASCADE)
-//    @JoinColumn(name = "guest_id", foreignKey = @ForeignKey(name = "fk_booking_guest"), insertable = false, updatable = false)
-//    private UserEntity guest;
-
-
     public EventsEntity() {
     }
 
