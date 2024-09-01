@@ -9,19 +9,23 @@ spring:
     username: ${DATABASE_USERNAME:root}
     password: ${DATABASE_PASSWORD:secret}
     driver-class-name: com.mysql.cj.jdbc.Driver
-#  jpa:
-#    hibernate:
-#      ddl-auto: create-drop
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-#    database-platform: org.hibernate.spatial.dialect.postgis.PostgisDialect
-#    show-sql: true
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+    show-sql: true
   sql:
     init:
       mode: always
       schema-locations: "classpath:database-init.sql"
 
+#    spring.jpa.show-sql=true
+#    spring.jpa.defer-datasource-initialization = true
+#    spring.jpa.hibernate.ddl-auto=update
 #staybooking:
 #  gcs:
 #    bucket: staybooking-bucket-cc

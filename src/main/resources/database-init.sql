@@ -1,5 +1,8 @@
 DROP TABLE IF EXISTS users;
-
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS alerts;
+DROP TABLE IF EXISTS newsletters;
+DROP TABLE IF EXISTS policies;
 
 CREATE TABLE users
 (
@@ -17,9 +20,10 @@ CREATE TABLE events
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(50) NOT NULL UNIQUE,
     content TEXT,
+    event_time DATETIME,
     update_time DATETIME,
-    publisher_id INT,
-    FOREIGN KEY (publisher_id) REFERENCES users(id)
+    publisher_id INT
+
 );
 
 CREATE TABLE alerts
@@ -28,8 +32,8 @@ CREATE TABLE alerts
     title VARCHAR(50) NOT NULL UNIQUE,
     content TEXT,
     update_time DATETIME,
-    publisher_id INT,
-    FOREIGN KEY (publisher_id) REFERENCES users(id)
+    publisher_id INT
+
 );
 
 CREATE TABLE newsletters
@@ -38,8 +42,8 @@ CREATE TABLE newsletters
     title VARCHAR(50) NOT NULL UNIQUE,
     content TEXT,
     update_time DATETIME,
-    publisher_id INT,
-    FOREIGN KEY (publisher_id) REFERENCES users(id)
+    publisher_id INT
+
 );
 
 CREATE TABLE policies
@@ -48,6 +52,6 @@ CREATE TABLE policies
     title VARCHAR(50) NOT NULL UNIQUE,
     content TEXT,
     update_time DATETIME,
-    publisher_id INT,
-    FOREIGN KEY (publisher_id) REFERENCES users(id)
+    publisher_id INT
+
 );

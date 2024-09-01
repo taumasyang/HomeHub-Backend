@@ -15,16 +15,18 @@ public class EventsEntity {
     private Long id;
     private String title;
     private String content;
+    private LocalDateTime eventTime;
     private LocalDateTime updateTime;
     private Long publisherId;
 
     public EventsEntity() {
     }
 
-    public EventsEntity(Long id, String title, String content, LocalDateTime updateTime, Long publisherId) {
+    public EventsEntity(Long id, String title, String content, LocalDateTime eventTime, LocalDateTime updateTime, Long publisherId) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.eventTime = eventTime;
         this.updateTime = updateTime;
         this.publisherId = publisherId;
     }
@@ -36,6 +38,8 @@ public class EventsEntity {
     public String getTitle() { return title; }
 
     public String getContent() { return content; }
+
+    public LocalDateTime getEventTime() { return eventTime; }
 
     public LocalDateTime getUpdateTime() {
         return updateTime;
@@ -55,7 +59,7 @@ public class EventsEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, content, updateTime, publisherId);
+        return Objects.hash(id, title, content, eventTime, updateTime, publisherId);
     }
 
 
@@ -65,6 +69,7 @@ public class EventsEntity {
                 "id=" + id +
                 ", title=" + title +
                 ", content=" + content +
+                ", eventTime=" + eventTime +
                 ", updateTime=" + updateTime +
                 ", publisherId=" + publisherId +
                 '}';

@@ -33,10 +33,10 @@ public class EventsService {
     }
 
 
-    public void createEvent(String title, String content, java.time.LocalDateTime updateTime, long publisherId) {
+    public void createEvent(String title, String content, java.time.LocalDateTime eventTime, java.time.LocalDateTime updateTime, long publisherId) {
         //add later: if publisher is not Admin, throw exception
 
-        eventsRepository.save(new com.laioffer.homehub.model.EventsEntity(null, title, content, updateTime, publisherId));
+        eventsRepository.save(new com.laioffer.homehub.model.EventsEntity(null, title, content, eventTime, updateTime,  publisherId));
     }
 
     public void deleteEvent(long userId, long eventId) {

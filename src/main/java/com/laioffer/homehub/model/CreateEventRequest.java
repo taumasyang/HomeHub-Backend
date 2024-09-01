@@ -8,6 +8,7 @@ public record CreateEventRequest(
         long id,
         String title,
         String content,
+        LocalDateTime eventTime,
         LocalDateTime updateTime,
         long publisherId
 ) {

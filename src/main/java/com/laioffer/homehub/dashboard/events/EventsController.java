@@ -26,14 +26,14 @@ public class EventsController {
     }
 
     @org.springframework.web.bind.annotation.GetMapping
-    public java.util.List<com.laioffer.homehub.model.EventsDto> getAlertsByDate(java.time.LocalDateTime updateTime) {
+    public java.util.List<com.laioffer.homehub.model.EventsDto> getEventsByDate(java.time.LocalDateTime updateTime) {
         return eventsService.findEventsByDate(updateTime);
     }
 
     @org.springframework.web.bind.annotation.PostMapping
     @org.springframework.web.bind.annotation.ResponseStatus(org.springframework.http.HttpStatus.CREATED)
-    public void createAlert(@org.springframework.security.core.annotation.AuthenticationPrincipal com.laioffer.homehub.model.UserEntity user, @org.springframework.web.bind.annotation.RequestBody com.laioffer.homehub.model.CreateAlertRequest body) {
-        eventsService.createEvent(body.title(), body.content(), body.updateTime(), user.getId());
+    public void createEvent(@org.springframework.security.core.annotation.AuthenticationPrincipal com.laioffer.homehub.model.UserEntity user, @org.springframework.web.bind.annotation.RequestBody com.laioffer.homehub.model.CreateEventRequest body) {
+        eventsService.createEvent(body.title(), body.content(), body.eventTime(), body.updateTime(), user.getId());
     }
 
     @org.springframework.web.bind.annotation.DeleteMapping("/{eventId}")
