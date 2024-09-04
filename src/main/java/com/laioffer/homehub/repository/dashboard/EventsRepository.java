@@ -11,10 +11,10 @@ import java.util.List;
 
 public interface EventsRepository extends org.springframework.data.jpa.repository.JpaRepository<EventsEntity, Long> {
 
-    @org.springframework.data.jpa.repository.Query(value = "SELECT * FROM events WHERE eventTime >= :currentDate order by eventTime desc", nativeQuery = true)
+    @org.springframework.data.jpa.repository.Query(value = "SELECT * FROM events WHERE event_time >= :currentDate order by event_time desc", nativeQuery = true)
     java.util.List<EventsEntity> findAllByDate(java.time.LocalDateTime date);
 
-    @org.springframework.data.jpa.repository.Query(value = "SELECT * FROM events order by eventTime", nativeQuery = true)
+    @org.springframework.data.jpa.repository.Query(value = "SELECT * FROM events order by event_time", nativeQuery = true)
     java.util.List<EventsEntity> findAllEvents();
 
     boolean existsByEventId(long eventId);
