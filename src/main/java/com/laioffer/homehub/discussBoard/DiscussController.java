@@ -30,7 +30,7 @@ public class DiscussController {
   public void createDiscuss(DiscussDto discussDto) {
     discussService.createDiscuss(
         discussDto.userId(),
-        discussDto.discussTitle(),
+        // discussDto.discussTitle(),
         discussDto.discussContent(),
         LocalDateTime.now().toString());
   }

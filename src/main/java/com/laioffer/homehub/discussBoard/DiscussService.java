@@ -23,14 +23,12 @@ public class DiscussService {
 
     public void createDiscuss(
         String userId,
-        String title,
         String content,
         String time
     ) {
         DiscussEntity discussEntity = new DiscussEntity(
             null,
             userId,
-            title,
             content,
             //LocalDateTime.now().toString(),
             time,
